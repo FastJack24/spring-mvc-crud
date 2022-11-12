@@ -51,7 +51,7 @@ public class PeopleController {
         }
         personDAO.save(person);
         return "redirect:/people"; // There we don't use view directly, but call another get method.
-        // @ModelAttribute("name) on methods adds attribute to the model with
+        // @ModelAttribute("name") on methods (not request mapping) adds attribute to the model with
         // the name "name" and value that is returned from this method. (We want attribute for every model).
         // On method's parameter:
         // 1) Creates object 2) Sets fields from the form parameters (if one parameter is missed,

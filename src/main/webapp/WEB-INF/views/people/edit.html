@@ -5,7 +5,7 @@
     <title>Edit person</title>
 </head>
 <body>
-<!--We MUST use thymeleaf method here because html 5 methods are patch and get-->
+<!--We MUST use thymeleaf method here because html 5 methods are post and get-->
 <form th:method="PATCH" th:action="@{/people/{id}(id=${person.getId()})}" th:object="${person}">
     <label for="name">Edit your name:</label>
     <input type="text" th:field="*{name}" id="name">

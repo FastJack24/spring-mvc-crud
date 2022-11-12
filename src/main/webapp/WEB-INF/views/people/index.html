@@ -6,12 +6,10 @@
 </head>
 <body>
 <div th:each="person: ${people}">
-    <p>
-        <a th:text="${person.getName() + ', id: ' + person.getId()}"
-           th:href="@{/people/{id}(id=${person.getId()})}">
-            user
-        </a>
-    </p> <!-- <a> is only for get request -->
+    <a th:text="${person.getName() + ', id: ' + person.getId()}"
+       th:href="@{/people/{id}(id=${person.getId()})}">
+        user
+    </a><!-- <a> is only for get request -->
 </div>
 <hr/>
 <form method="GET" action="/people/new">

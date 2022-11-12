@@ -9,6 +9,7 @@ This app has one entity (model) Person with the corresponding controller. Endpoi
 7) DELETE URL:/people/:id (We delete a person for the corresponding ID (DELETE))
 
 Tomcat 9 is used for launch (Spring 5.* on Tomcat 10.* does not run).
+Thymeleaf is used as a template engine.
 ### Versions
 1) Array (Server is not stateless)
 2) PostgreSQL with JDBC Templates
