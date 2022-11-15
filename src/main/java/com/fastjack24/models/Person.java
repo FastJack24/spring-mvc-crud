@@ -1,9 +1,6 @@
 package com.fastjack24.models;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class Person {
     // Most web apps are CRUD apps (Database access with HTTP protocol).
@@ -21,10 +18,11 @@ public class Person {
     private int id;
 
     @NotEmpty(message = "Name should not be empty.")
-    @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters.")
+    @Size(min = 2, max = 32, message = "Name should be between 2 and 30 characters.")
     private String name;
 
     @Min(value = 0, message = "Age should be grater than 0.")
+    @Max(value = 150, message = "Age should be lower than 150")
     private int age;
 
     @NotEmpty(message = "Email should not be empty.")
