@@ -85,4 +85,16 @@ public class PeopleController {
         personDAO.delete(id);
         return "redirect:/people";
     }
+
+    @GetMapping("/test")
+    public String testPerformance() {
+        personDAO.testMultipleUpdate();
+        return "people/index";
+    }
+
+    @GetMapping("/test-batch")
+    public String testBatchPerformance() {
+        personDAO.testBatchUpdate();
+        return "people/index";
+    }
 }
