@@ -1,7 +1,8 @@
-package com.fastjack24.controllers;
+package com.fastjack24.controller;
 
 import com.fastjack24.dao.persondao.PersonDAO;
-import com.fastjack24.models.Person;
+import com.fastjack24.model.Person;
+import com.fastjack24.util.PersonValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +16,12 @@ import javax.validation.Valid;
 public class PeopleController {
 
     private final PersonDAO personDAO; // Already final (Bean scope is singleton)
+    private final PersonValidator personValidator;
 
     @Autowired // Spring is going to do this anyway.
-    public PeopleController(PersonDAO personDAO) {
+    public PeopleController(PersonDAO personDAO, PersonValidator personValidator) {
         this.personDAO = personDAO;
+        this.personValidator = personValidator;
     }
 
     @GetMapping()
@@ -46,6 +49,8 @@ public class PeopleController {
         // Binding result always!!! goes after validated value.
         // Also, possible with @RequestParam("paramName").
         // ID is 0 at first if the default constructor is set.
+        personValidator.validate(person, bindingResult);
+
         if (bindingResult.hasErrors()) {
             return "people/new";
         }

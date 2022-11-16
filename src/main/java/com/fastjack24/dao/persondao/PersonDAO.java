@@ -1,6 +1,6 @@
 package com.fastjack24.dao.persondao;
 
-import com.fastjack24.models.Person;
+import com.fastjack24.model.Person;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -32,6 +32,14 @@ public class PersonDAO {
                 new BeanPropertyRowMapper<>(Person.class),
                 id
         ).stream().findAny().orElse(new Person());
+    }
+
+    public boolean emailCheck(String email) {
+        return jdbcTemplate.query(
+                "SELECT person_id as id, person_name AS name, age, email FROM person WHERE email = ?",
+                new BeanPropertyRowMapper<>(Person.class),
+                email
+        ).stream().findAny().isPresent();
     }
 
     public void save(Person person) {

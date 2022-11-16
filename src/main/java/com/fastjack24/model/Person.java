@@ -1,4 +1,4 @@
-package com.fastjack24.models;
+package com.fastjack24.model;
 
 import javax.validation.constraints.*;
 
@@ -17,15 +17,16 @@ public class Person {
 
     private int id;
 
-    @NotEmpty(message = "Name should not be empty.")
-    @Size(min = 2, max = 32, message = "Name should be between 2 and 30 characters.")
+    @NotEmpty(message = "Name should not be empty")
+    @Size(min = 2, max = 32, message = "Name should be between 2 and 30 characters")
+    @Pattern(regexp = "\\p{javaUpperCase}.*", message = "Name should start with upper case")
     private String name;
 
     @Min(value = 0, message = "Age should be grater than 0.")
     @Max(value = 150, message = "Age should be lower than 150")
     private int age;
 
-    @NotEmpty(message = "Email should not be empty.")
+    @NotEmpty(message = "Email should not be empty")
     @Email
     private String email;
 
