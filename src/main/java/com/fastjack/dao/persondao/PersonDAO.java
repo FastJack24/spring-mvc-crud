@@ -1,9 +1,10 @@
-package com.fastjack24.dao.persondao;
+package com.fastjack.dao.persondao;
 
-import com.fastjack24.model.Person;
+import com.fastjack.model.Person;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 import java.sql.PreparedStatement;
@@ -95,7 +96,7 @@ public class PersonDAO {
                 "INSERT INTO person (person_name, age, email) VALUES(?, ?, ?)",
                 new BatchPreparedStatementSetter() {
                     @Override
-                    public void setValues(PreparedStatement ps, int i) throws SQLException {
+                    public void setValues(@NonNull PreparedStatement ps, int i) throws SQLException {
                         ps.setString(1, people.get(i).getName());
                         ps.setInt(   2, people.get(i).getAge());
                         ps.setString(3, people.get(i).getEmail());

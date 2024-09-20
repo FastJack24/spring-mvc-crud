@@ -1,5 +1,3 @@
-CREATE DATABASE webappmvc;
-
 CREATE TABLE person
 (
     person_id int GENERATED ALWAYS AS IDENTITY,

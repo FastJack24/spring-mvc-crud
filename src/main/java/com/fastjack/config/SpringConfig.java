@@ -1,4 +1,4 @@
-package com.fastjack24.config;
+package com.fastjack.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -10,14 +10,14 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.thymeleaf.spring5.SpringTemplateEngine;
-import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
-import org.thymeleaf.spring5.view.ThymeleafViewResolver;
+import org.thymeleaf.spring6.SpringTemplateEngine;
+import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
+import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 
 import javax.sql.DataSource;
 
 @Configuration
-@ComponentScan("com.fastjack24")
+@ComponentScan("com.fastjack")
 @EnableWebMvc
 public class SpringConfig implements WebMvcConfigurer {
 
@@ -55,12 +55,10 @@ public class SpringConfig implements WebMvcConfigurer {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/webappmvc");
-        dataSource.setUsername("postgres");
-        dataSource.setPassword("password");
-
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/jpa");
+        dataSource.setUsername("jpa");
+        dataSource.setPassword("jpapass");
         return dataSource;
     }
 

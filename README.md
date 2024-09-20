@@ -8,7 +8,7 @@ This app has one entity (model) Person with the corresponding controller. Endpoi
 6) PATCH or we have PUT URL:/people/:id (We update a person for the corresponding ID (UPDATE))
 7) DELETE URL:/people/:id (We delete a person for the corresponding ID (DELETE))
 
-Tomcat 9 is used for launch (Spring 5.* on Tomcat 10.* does not run).
+Tomcat 10 is used for launch (Compatible with Spring 6.*).
 Thymeleaf is used as a template engine.
 ### Versions
 1) Array (Server is not stateless)
